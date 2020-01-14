@@ -1,0 +1,32 @@
+[build-system]
+requires = [
+    "robotpy-build>=2020.0.10,<2021.0.0",
+]
+
+[tool.robotpy-build]
+base_package = "halsim_lowfi"
+
+
+[tool.robotpy-build.wrappers."halsim_lowfi".maven_lib_download]
+artifact_id = "halsim_lowfi"
+group_id = "edu.wpi.first.halsim"
+repo_url = "https://frcmaven.wpi.edu/artifactory/release"
+version = "2020.1.2"
+
+dlopenlibs = ["halsim_lowfi"]
+
+# TODO: make this a namespace package?
+[tool.robotpy-build.wrappers."halsim_lowfi"]
+name = "halsim_lowfi"
+
+[tool.robotpy-build.metadata]
+name = "robotpy-halsim-lowfi"
+description = "WPILib command framework"
+author = "RobotPy Development Team"
+author_email = "robotpy@googlegroups.com"
+url = "https://github.com/robotpy/robotpy-halsim-lowfi"
+license = "BSD-3-Clause"
+install_requires = []
+
+[tool.robotpy-build.metadata.entry_points]
+robotpy = ["lowfi = halsim_lowfi.main:HalSimLowfiMain"]
